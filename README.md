@@ -9,7 +9,7 @@ MailTracker will hook into all outgoing emails from Laravel and inject a trackin
 Via Composer
 
 ``` bash
-$ composer require ratheeps/mail-tracker
+$ composer require jeylabs/mail-tracker
 ```
 
 Add the following to the providers array in config/app.php:
@@ -143,8 +143,8 @@ Often times you may need to link a sent email to another model.  The best way to
  * Send an email and do processing on a model with the email
  */
 \Mail::send('email.test', [], function ($message) use($email, $subject, $name, $model) {
-    $message->from('from@ratheeps.com', 'From Name');
-    $message->sender('sender@ratheeps.com', 'Sender Name');
+    $message->from('info@jeylabs.com', 'From Name');
+    $message->sender('info@jeylabs.com', 'Sender Name');
     $message->to($email, $name);
     $message->subject($subject);
 

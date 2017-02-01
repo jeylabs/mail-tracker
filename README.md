@@ -32,8 +32,8 @@ $ php artisan migrate
 
 Once installed, all outgoing mail will be logged to the database.  The following config options are available in config/mail-tracker.php:
 
-* **inject-pixel**: set to true to inject a tracking pixel into all outgoing html emails.
-* **track-links**: set to true to rewrite all anchor href links to include a tracking link. The link will take the user back to your website which will then redirect them to the final destination after logging the click.
+* **track-open**: set to true to inject a tracking pixel into all outgoing html emails.
+* **track-click**: set to true to rewrite all anchor href links to include a tracking link. The link will take the user back to your website which will then redirect them to the final destination after logging the click.
 * **expire-days**: How long in days that an email should be retained in your database.  If you are sending a lot of mail, you probably want it to eventually expire.  Set it to zero to never purge old emails from the database.
 * **route**: The route information for the tracking URLs.  Set the prefix and middlware as desired.
 * **date-format**: You can define the format to show dates in the Admin Panel.

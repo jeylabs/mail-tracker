@@ -1,0 +1,31 @@
+{
+    "name": "jeylabs/mail-tracker",
+    "description": "MailTracker will hook into all outgoing emails from Laravel and inject a tracking code into it. It will also store the rendered email in the database. There is also an interface to view sent emails.",
+    "keywords": ["jeylabs", "laravel", "mail-tracker"],
+    "license": "MIT",
+    "type": "Package",
+    "authors": [
+        {
+            "name": "jeylabs",
+            "email": "ratheep.ceymplon@jeylabs.com",
+            "homepage": "https://jeylabs.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "laravel/framework": ">=5.3.23",
+        "guzzlehttp/guzzle": "^5.3.1|^6.2.1",
+        "illuminate/support": "~5.1",
+        "aws/aws-sdk-php-laravel": "~3.0",
+        "aws/aws-php-sns-message-validator": "^1.1",
+        "php" : "~5.5|~7.0"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Jeylabs\\MailTracker\\": "src"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

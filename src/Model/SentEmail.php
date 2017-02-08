@@ -12,7 +12,6 @@ class SentEmail extends Model
     	'sender',
     	'recipient',
     	'subject',
-    	'content',
     	'opens',
     	'clicks',
         'message_id',

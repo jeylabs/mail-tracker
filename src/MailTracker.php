@@ -54,14 +54,17 @@ class MailTracker implements \Swift_Events_SendListener {
         if(config('mail-tracker.track-click')) {
             $html = $this->injectLinkTracker($html, $hash);
         }
-
+        if (config('mail-tracker.custom-inject')){
+            $customInject = config('mail-tracker.custom-inject-html');
+            $html = $this->customInject($html, $customInject);
+        }
         return $html;
     }
 
     protected function injectTrackingPixel($html, $hash)
     {
         // Append the tracking url
-        $tracking_pixel = '<img src="'.route('mailTracker_t',[$hash]).'" />';
+        $tracking_pixel = '<img src="'.route('mailTracker_t',[$hash]).'"  style="height: 0px; display: inherit;"/>';
 
         $linebreak = str_random(32);
         $html = str_replace("\n",$linebreak,$html);
@@ -73,6 +76,20 @@ class MailTracker implements \Swift_Events_SendListener {
         }
         $html = str_replace($linebreak,"\n",$html);
 
+        return $html;
+    }
+
+    protected function customInject($html, $injectHtml){
+        // Append the custom html
+        $linebreak = str_random(32);
+        $html = str_replace("\n",$linebreak,$html);
+
+        if(preg_match("/^(.*<body[^>]*>)(.*)$/", $html, $matches)) {
+            $html = $matches[1].$injectHtml.$matches[2];
+        } else {
+            $html = $html . $injectHtml;
+        }
+        $html = str_replace($linebreak,"\n",$html);
         return $html;
     }
 

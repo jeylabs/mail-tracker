@@ -64,7 +64,7 @@ class MailTracker implements \Swift_Events_SendListener {
     protected function injectTrackingPixel($html, $hash)
     {
         // Append the tracking url
-        $tracking_pixel = '<img alt="##- Please type your reply above this line -##" src="'.route('mailTracker_t',[$hash]).'"/>';
+        $tracking_pixel = '<img class="_##_Please_type_your_reply_above_this_line_##_" src="'.route('mailTracker_t',[$hash]).'"/>';
 
         $linebreak = str_random(32);
         $html = str_replace("\n",$linebreak,$html);
